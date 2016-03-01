@@ -17,7 +17,7 @@ class Prize
 
    #Conversor a texto
    def to_s
-      return "Treasures = #{@treasures}, Levels = #{@level}"
+      return "Treasures = #{@treasures.to_s}, Levels = #{@level.to_s}"
    end
 
 end
