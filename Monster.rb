@@ -1,3 +1,6 @@
+require_relative 'Prize'
+require_relative 'BadConsequence'
+
 class Monster
 
    #Inicializador

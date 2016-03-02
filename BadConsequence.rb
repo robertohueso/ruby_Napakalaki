@@ -1,3 +1,5 @@
+require_relative 'TreasureKind'
+
 class BadConsequence
 
    #Inicializadores
@@ -11,15 +13,15 @@ class BadConsequence
    end
 
    def self.newLevelNumberOfTreasures(aText, someLevels, someVisibleTreasures, someHiddenTreasures)
-      self.new(aText, someLevels, someVisibleTreasures, someHiddenTreasures, [], [])
+      new(aText, someLevels, someVisibleTreasures, someHiddenTreasures, [], [])
    end
 
    def self.newLevelSpecificTreasures(aText, someLevels, someSpecificVisibleTreasures, someSpecificHiddenTreasures)
-      self.new(aText, someLevels, 0, 0, someSpecificVisibleTreasures, someSpecificHiddenTreasures)
+      new(aText, someLevels, 0, 0, someSpecificVisibleTreasures, someSpecificHiddenTreasures)
    end
 
    def self.newDeath(aText)
-      self.new(aText, 10, 10, 10, [], [])
+      new(aText, 10, 10, 10, [], [])
    end
 
    #Getters basicos
