@@ -18,7 +18,10 @@ class PruebaNapakalaki
          "pollipolipo" => "Da mucho asquito. Pierdes 3 niveles",
          "Yskhtihyssg" => "No le hace gracia que pronuncien mal su nombre. Estas muerto",
          "familia" => "La familia te atrapa. Estas muerto",
-         "Roboggoth" => "La quinta directiva primaria te obliga a perder 2 niveles y 2 tesoros de una mano visibles"
+         "Roboggoth" => "La quinta directiva primaria te obliga a perder 2 niveles y 2 tesoros de una mano visibles",
+         "espia" => "Te asusta en la noche. Pierdes 1 casco visible",
+         "lenguas" => "Menudo susto te llevas. Pierdes 3 niveles y 5 tesoros visibles",
+         "bicefalo" => "Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos"
       }
       @monstruos = Array.new
 
@@ -93,7 +96,29 @@ class PruebaNapakalaki
             2, [TreasureKind::ONEHAND, TreasureKind::ONEHAND], [])
       prize = Prize.new(2, 1)
       @monstruos << Monster.new("Roboggoth", 8, bc, prize)
+
+      bc = BadConsequence.newLevelSpecificTreasures(@textos_bc["espia"],
+            0, [TreasureKind::HELMET], [])
+      prize = Prize.new(1, 1)
+      @monstruos << Monster.new("El Espia", 5, bc, prize)
+
+      bc = BadConsequence.newLevelNumberOfTreasures(@textos_bc["lenguas"], 3, 5, 0)
+      prize = Prize.new(1, 1)
+      @monstruos << Monster.new("El lenguas", 20, bc, prize)
+
+      bc = BadConsequence.newLevelSpecificTreasures(@textos_bc["bicefalo"],
+            0, [TreasureKind::BOTHHANDS, TreasureKind::ONEHAND, TreasureKind::ONEHAND], [])
+      prize = Prize.new(1, 1)
+      @monstruos << Monster.new("Bicefalo", 20, bc, prize)
+
+   end
+
+   def imprimir
+      for monstruo in @monstruos
+         puts monstruo.to_s
+      end
    end
 end
 
 prueba = PruebaNapakalaki.new
+prueba.imprimir
