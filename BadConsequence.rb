@@ -25,21 +25,8 @@ class BadConsequence
    end
 
    #Getters basicos
-   def getText
-      return @text
-   end
-
-   def getLevels
-      return @levels
-   end
-
-   def getNVisible
-      return @nVisibleTreasures
-   end
-
-   def getNHidden
-      return @nHiddenTreasures
-   end
+   attr_reader :text, :levels, :nVisibleTreasures, :nHiddenTreasures,
+      :someVisibleTreasures, :someHiddenTreasures
 
    #Conversor a texto
    def to_s
