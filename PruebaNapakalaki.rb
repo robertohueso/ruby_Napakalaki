@@ -120,7 +120,7 @@ class PruebaNapakalaki
    end
 
    def greaterCombatLevel(level)
-      @monsters.select{ |monster| monster.level > 10 }
+      @monsters.select{ |monster| monster.level > level }
    end
 end
 
