@@ -122,7 +122,24 @@ class PruebaNapakalaki
    def greaterCombatLevel(level)
       @monsters.select{ |monster| monster.level > level }
    end
+
+   def levelLoosers
+      @monsters.select{|monster|
+         monster.badConsequence.levels > 0 &&
+         monster.badConsequence.nVisibleTreasures == 0 &&
+         monster.badConsequence.nHiddenTreasures == 0 &&
+         monster.badConsequence.visibleTreasures.empty? &&
+         monster.badConsequence.hiddenTreasures.empty?
+      }
+   end
 end
 
 prueba = PruebaNapakalaki.new
-prueba.imprimir
+
+greater_10_monsters = prueba.greaterCombatLevel(10)
+level_loosers = prueba.levelLoosers
+
+puts "Monstruos con nivel > 10:"
+puts greater_10_monsters
+puts "\nMonstruos que solo pierden nivel con el mal rollo:"
+puts level_loosers

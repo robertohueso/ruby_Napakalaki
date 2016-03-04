@@ -26,7 +26,7 @@ class BadConsequence
 
    #Getters basicos
    attr_reader :text, :levels, :nVisibleTreasures, :nHiddenTreasures,
-      :someVisibleTreasures, :someHiddenTreasures
+      :visibleTreasures, :hiddenTreasures
 
    #Conversor a texto
    def to_s
