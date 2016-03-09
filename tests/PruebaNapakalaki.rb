@@ -1,4 +1,4 @@
-require_relative 'Monster'
+require './Monster'
 
 class PruebaNapakalaki
    def initialize
