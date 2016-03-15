@@ -152,11 +152,11 @@ level_loosers = prueba.levelLoosers
 level_earning_greater_1 = prueba.greaterLevelPrize(1)
 onehand_loosers = prueba.treasureKindLoosers(TreasureKind::ONEHAND)
 
-puts "Monstruos con nivel > 10:"
+puts "\nMonstruos con nivel > 10:\n"
 puts greater_10_monsters
-puts "\nMonstruos que solo pierden nivel con el mal rollo:"
+puts "\nMonstruos que solo pierden nivel con el mal rollo:\n"
 puts level_loosers
-puts "\nMonstruos que ganan mas de 1 nivel con el buen rollo:"
+puts "\nMonstruos que ganan mas de 1 nivel con el buen rollo:\n"
 puts level_earning_greater_1
-puts "\nMonstruos que pierden tesoros de 1 mano con el mal rollo:"
+puts "\nMonstruos que pierden tesoros de 1 mano con el mal rollo:\n"
 puts onehand_loosers

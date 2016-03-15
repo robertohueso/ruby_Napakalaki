@@ -17,7 +17,7 @@ class Monster
    attr_reader :name, :level, :badConsequence, :prize
 
    def to_s
-      return "Nombre: #{@name}, Nivel #{@level.to_s}, Buen Rollo #{@prize.to_s}, Mal rollo #{@badConsequence.to_s}"
+      return "Nombre: #{@name} \n\t Nivel: #{@level.to_s} \n\t Buen Rollo: #{@prize.to_s} \n\t Mal rollo: #{@badConsequence.to_s}\n"
    end
 
 end
