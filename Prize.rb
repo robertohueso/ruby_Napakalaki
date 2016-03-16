@@ -16,4 +16,9 @@ class Prize
       return "Ganas #{@treasures.to_s} tesoros y #{@level.to_s} nieveles"
    end
 
+   #EXAMEN
+   def Prize.newSinParametro()
+      new(1,1)
+   end
+   #FIN EXAMEN
 end

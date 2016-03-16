@@ -1,6 +1,7 @@
 #encoding: utf-8
 
 require_relative 'Monster'
+require_relative 'EstadisticaNivelCombate'
 
 class PruebaNapakalaki
    def initialize
@@ -145,6 +146,8 @@ class PruebaNapakalaki
          monster.badConsequence.hiddenTreasures.include?(treasure_kind)
       }
    end
+
+   attr_reader :monsters
 end
 
 prueba = PruebaNapakalaki.new
@@ -162,3 +165,10 @@ puts "\nMonstruos que ganan mas de 1 nivel con el buen rollo:\n"
 puts level_earning_greater_1
 puts "\nMonstruos que pierden tesoros de 1 mano con el mal rollo:\n"
 puts onehand_loosers
+
+#EXAMEN
+puts "EXAMEN:\n\n"
+lista = prueba.monsters[0..2]
+EstadisticaNivelCombate.newEstadistica(lista)
+
+#FIN EXAMEN
