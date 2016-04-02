@@ -8,8 +8,15 @@ class Prize
       @level = level
    end
 
-   #Geters basicos
-   attr_reader :treasures, :level
+   #Metodos publicos
+   public
+   def getLevels()
+      return @level
+   end
+
+   def getTreasures()
+      return @treasures
+   end
 
    #Conversor a texto
    def to_s

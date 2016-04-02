@@ -3,6 +3,7 @@
 require_relative 'TreasureKind'
 
 class BadConsequence
+   MAXTREASURES = 10
 
    #Inicializadores
    def initialize(aText, someLevels, someVisibleTreasures, someHiddenTreasures, someSpecificVisibleTreasures, someSpecificHiddenTreasures)
@@ -10,8 +11,8 @@ class BadConsequence
       @levels = someLevels
       @nVisibleTreasures = someVisibleTreasures
       @nHiddenTreasures = someHiddenTreasures
-      @visibleTreasures = someSpecificVisibleTreasures
-      @hiddenTreasures = someSpecificHiddenTreasures
+      @specificVisibleTreasures = someSpecificVisibleTreasures
+      @specificHiddenTreasures = someSpecificHiddenTreasures
    end
 
    def self.newLevelNumberOfTreasures(aText, someLevels, someVisibleTreasures, someHiddenTreasures)
@@ -23,12 +24,44 @@ class BadConsequence
    end
 
    def self.newDeath(aText)
-      new(aText, 10, 10, 10, [], [])
+      new(aText, 10, MAXTREASURES, MAXTREASURES, [], [])
    end
 
-   #Getters basicos
-   attr_reader :text, :levels, :nVisibleTreasures, :nHiddenTreasures,
-      :visibleTreasures, :hiddenTreasures
+   #Metodos publicos
+   public
+   def isEmpty
+      return @nVisibleTreasures == 0 && @nHiddenTreasures == 0 &&
+             @specificHiddenTreasures.empty? && @someSpecificVisibleTreasures.empty?
+   end
+
+   def getLevels
+      return @levels
+   end
+
+   def getNVisibleTreasures
+      return @nVisibleTreasures
+   end
+
+   def getNHiddenTreasures
+      return @nHiddenTreasures
+   end
+
+   def getSpecificHiddenTreasures
+      return @specificHiddenTreasures
+   end
+
+   def getSpecificVisibleTreasures
+      return @specificVisibleTreasures
+   end
+
+   def substractVisibleTreasure(t)
+   end
+
+   def substractHiddenTreasure(t)
+   end
+
+   def adjustToFitTreasureList(v, h)
+   end
 
    #Conversor a texto
    def to_s

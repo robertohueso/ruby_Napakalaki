@@ -13,8 +13,27 @@ class Monster
       @prize = prize
    end
 
-   #Getters basicos
-   attr_reader :name, :level, :badConsequence, :prize
+   #Metodos publicos
+   public
+   def getName
+      return @name
+   end
+
+   def getCombatLevel
+      return @level
+   end
+
+   def getBadConsequence
+      return @badConsequence
+   end
+
+   def getLevelsGained
+      return @prize.getLevels
+   end
+
+   def getTreasuresGained
+      return @prize.getTreasures.size
+   end
 
    def to_s
       return "Nombre: #{@name} \n\t Nivel: #{@level.to_s} \n\t Buen Rollo: #{@prize.to_s} \n\t Mal rollo: #{@badConsequence.to_s}\n"
