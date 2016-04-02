@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 class Player
    MAXLEVEL = 10
    #Constructor
