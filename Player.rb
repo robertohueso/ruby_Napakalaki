@@ -21,18 +21,30 @@ class Player
    #Metodos privados
    private
    def bringToLife()
+      @dead = false
    end
 
    def getCombatLevel()
+      total_level = @level
+      @visibleTreasures.each{ |treasure| total_level += treasure.getBonus()}
+      return total_level
    end
 
    def incrementLevels(l)
+      @level += l
    end
 
    def decrementLevels(l)
+      new_level = @level - l
+      if new_level >= 1
+         @level = new_level
+      else
+         @level = 1
+      end
    end
 
    def setPendingBadConsequence(b)
+      @pendingBadConsequence = b
    end
 
    def applyPrize(m)
@@ -45,17 +57,29 @@ class Player
    end
 
    def howManyVisibleTreasures(tKind)
+      total = 0
+      @visibleTreasures.each{ |treasure|
+         if treasure.getType == tKind
+            total += 1
+         end
+      }
+      return total
    end
 
    def dieIfNoTreasures()
+      if @visibleTreasures.empty? && @hiddenTreasures.empty?
+         @dead = true
+      end
    end
 
    #Metodos publicos
    public
    def getName()
+      return @name
    end
 
    def isDead()
+      return @dead
    end
 
    def getHiddenTreasures()
@@ -77,12 +101,14 @@ class Player
    end
 
    def validState()
+      return @pendingBadConsequence.isEmpty || @hiddenTreasures.size > 4
    end
 
    def initTreasures()
    end
 
    def getLevels()
+      return @level
    end
 
    def discardAllTreasures()
