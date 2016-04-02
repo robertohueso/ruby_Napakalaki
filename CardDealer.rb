@@ -1,5 +1,8 @@
 #encoding: utf-8
 
+require_relative "Treasure"
+require_relative "Monster"
+
 require 'singleton'
 
 class CardDealer

@@ -1,6 +1,10 @@
 #encoding: utf-8
 
-require 'singleton'
+require "singleton"
+require_relative "Monster"
+require_relative "Player"
+require_relative "CombatResult"
+require_relative "CardDealer"
 
  class Napakalaki
     #Clase singleton

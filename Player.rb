@@ -1,5 +1,11 @@
 #encoding: utf-8
 
+require_relative "Treasure"
+require_relative "Dice"
+require_relative "BadConsequence"
+require_relative "CardDealer"
+require_relative "CombatResult"
+
 class Player
    MAXLEVEL = 10
    #Constructor
