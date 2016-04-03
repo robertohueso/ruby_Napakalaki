@@ -8,7 +8,7 @@ class Monster
    #Inicializador
    def initialize(name, level, badConsequence, prize)
       @name = name
-      @level = level
+      @combatLevel = level
       @badConsequence = badConsequence
       @prize = prize
    end
@@ -20,7 +20,7 @@ class Monster
    end
 
    def getCombatLevel
-      return @level
+      return @combatLevel
    end
 
    def getBadConsequence
