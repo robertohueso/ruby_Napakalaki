@@ -32,7 +32,7 @@ class Monster
    end
 
    def getTreasuresGained
-      return @prize.getTreasures.size
+      return @prize.getTreasures
    end
 
    def to_s
