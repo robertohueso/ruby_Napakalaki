@@ -13,11 +13,14 @@ class Treasure
    #Metodos publicos
    public
    def getName()
+      return @name
    end
 
    def getBonus()
+      return @bonus
    end
 
    def getType()
+      return @type
    end
 end
