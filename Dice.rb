@@ -9,5 +9,6 @@ class Dice
     #Metodos publicos
     public
     def nextNumber()
+      return Random.rand(1..6)
     end
 end
