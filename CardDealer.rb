@@ -163,9 +163,11 @@ class CardDealer
    end
 
    def shuffleTreasures()
+      @unusedTreasures.shuffle!
    end
 
    def shuffleMonsters()
+      @unusedMonsters.shuffle!
    end
 
    #Metodos publicos
@@ -177,9 +179,11 @@ class CardDealer
    end
 
    def giveTreasureBack(t)
+      @usedTreasures << t
    end
 
    def giveMonsterBack(m)
+      @usedMonsters << m
    end
 
    def initCards()
