@@ -8,7 +8,7 @@ require_relative "CardDealer"
 
  class Napakalaki
     #Clase singleton
-    include singleton
+    include Singleton
 
     def initialize()
       @currentPlayerIndex = nil

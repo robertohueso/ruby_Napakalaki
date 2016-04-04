@@ -2,12 +2,11 @@
 
 require_relative "Treasure"
 require_relative "Monster"
-
-require 'singleton'
+require "singleton"
 
 class CardDealer
    #Clase singleton
-   include singleton
+   include Singleton
 
    def initialize()
       @unusedMonsters = []
