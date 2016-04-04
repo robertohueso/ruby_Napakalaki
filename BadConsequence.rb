@@ -1,7 +1,6 @@
 #encoding: utf-8
 
 require_relative "TreasureKind"
-require_relative "Player"
 
 class BadConsequence
    MAXTREASURES = 10
