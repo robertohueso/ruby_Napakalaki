@@ -6,7 +6,7 @@ require_relative "Player"
 module NapakalakiGame
 
 class BadConsequence
-   MAXTREASURES = 10
+   @@MAXTREASURES = 10
 
    #Inicializadores
    def initialize(aText, someLevels, someVisibleTreasures, someHiddenTreasures, someSpecificVisibleTreasures, someSpecificHiddenTreasures)

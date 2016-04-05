@@ -9,7 +9,7 @@ require_relative "CombatResult"
 module NapakalakiGame
 
 class Player
-   MAXLEVEL = 10
+   @@MAXLEVEL = 10
    #Constructor
    def initialize(name)
       @name = name
