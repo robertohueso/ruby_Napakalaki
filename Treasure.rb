@@ -2,6 +2,8 @@
 
 require_relative "TreasureKind"
 
+module NapakalakiGame
+
 class Treasure
    #Constructor
    def initialize(n, bonus, t)
@@ -23,4 +25,6 @@ class Treasure
    def getType()
       return @type
    end
+end
+
 end

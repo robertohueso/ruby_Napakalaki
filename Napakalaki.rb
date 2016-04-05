@@ -6,56 +6,64 @@ require_relative "Player"
 require_relative "CombatResult"
 require_relative "CardDealer"
 
- class Napakalaki
-    #Clase singleton
-    include Singleton
+module NapakalakiGame
 
-    def initialize()
+class Napakalaki
+   #Clase singleton
+   include Singleton
+
+   def initialize()
       @currentPlayerIndex = nil
       @currentMonster = nil
       @dealer = nil
       @currentPlayer = nil
       @players = []
-    end
+   end
 
-    #Metodos privados
-    private
-    def initPlayers(names)
+   #Metodos privados
+   private
+   def initPlayers(names)
 
-    end
+   end
 
-    def nextPlayer()
-    end
+   def nextPlayer()
+   end
 
-    def nextTurnAllowed()
-    end
+   def nextTurnAllowed()
+   end
 
-    #Metodos publicos
-    public
-    def developCombat()
-    end
+   #Metodos publicos
+   public
+   def Napakalaki.getInstance()
+      self.instance
+   end
 
-    def discardVisibleTreasures(treasures)
-    end
+   def developCombat()
+   end
 
-    def discardHiddenTreasures(treasures)
-    end
+   def discardVisibleTreasures(treasures)
+   end
 
-    def makeTreasuresVisible(treasures)
-    end
+   def discardHiddenTreasures(treasures)
+   end
 
-    def initGame(players)
-    end
+   def makeTreasuresVisible(treasures)
+   end
 
-    def getCurrentPlayer()
-    end
+   def initGame(players)
+   end
 
-    def getCurrentMonster()
-    end
+   def getCurrentPlayer()
+   end
 
-    def nextTurn()
-    end
+   def getCurrentMonster()
+   end
 
-    def endOfGame(result)
-    end
- end
+   def nextTurn()
+   end
+
+   def endOfGame(result)
+   end
+end
+
+end

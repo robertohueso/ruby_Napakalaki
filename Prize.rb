@@ -1,5 +1,7 @@
 #encoding: utf-8
 
+module NapakalakiGame
+
 class Prize
 
    #Inicializador
@@ -22,5 +24,7 @@ class Prize
    def to_s
       return "Ganas #{@treasures.to_s} tesoros y #{@level.to_s} nieveles"
    end
+
+end
 
 end

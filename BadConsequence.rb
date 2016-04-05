@@ -2,6 +2,8 @@
 
 require_relative "TreasureKind"
 
+module NapakalakiGame
+
 class BadConsequence
    MAXTREASURES = 10
 
@@ -69,4 +71,6 @@ class BadConsequence
    end
 
    private_class_method :new
+end
+
 end

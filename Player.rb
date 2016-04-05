@@ -6,6 +6,8 @@ require_relative "BadConsequence"
 require_relative "CardDealer"
 require_relative "CombatResult"
 
+module NapakalakiGame
+
 class Player
    MAXLEVEL = 10
    #Constructor
@@ -113,4 +115,6 @@ class Player
 
    def discardAllTreasures()
    end
+end
+
 end

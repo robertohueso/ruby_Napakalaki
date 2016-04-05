@@ -3,6 +3,8 @@
 require_relative 'Prize'
 require_relative 'BadConsequence'
 
+module NapakalakiGame
+
 class Monster
 
    #Inicializador
@@ -38,5 +40,7 @@ class Monster
    def to_s
       return "Nombre: #{@name} \n\t Nivel: #{@level.to_s} \n\t Buen Rollo: #{@prize.to_s} \n\t Mal rollo: #{@badConsequence.to_s}\n"
    end
+
+end
 
 end

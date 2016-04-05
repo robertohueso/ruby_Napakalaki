@@ -4,6 +4,8 @@ require_relative "Treasure"
 require_relative "Monster"
 require "singleton"
 
+module NapakalakiGame
+
 class CardDealer
    #Clase singleton
    include Singleton
@@ -171,6 +173,10 @@ class CardDealer
 
    #Metodos publicos
    public
+   def CardDealer.getInstance()
+      self.instance
+   end
+
    def nextTreasure()
    end
 
@@ -187,4 +193,6 @@ class CardDealer
 
    def initCards()
    end
+end
+
 end

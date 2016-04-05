@@ -1,5 +1,19 @@
+require './BadConsequence'
+require './CardDealer'
+require './CombatResult'
+require './Dice'
 require './Monster'
+require './Napakalaki'
+require './Player'
+require './Prize'
+require './Treasure'
+require './TreasureKind'
 
+module NapakalakiGame
+   napakalaki = Napakalaki.getInstance
+end
+
+=begin PRUEBA VERSION PRACTICA 1
 class PruebaNapakalaki
    def initialize
       @textos_bc = {
@@ -160,3 +174,4 @@ puts "\nMonstruos que ganan mas de 1 nivel con el buen rollo:\n"
 puts level_earning_greater_1
 puts "\nMonstruos que pierden tesoros de 1 mano con el mal rollo:\n"
 puts onehand_loosers
+=end
