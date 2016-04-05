@@ -1,6 +1,7 @@
 #encoding: utf-8
 
 require_relative "TreasureKind"
+require_relative "Player"
 
 module NapakalakiGame
 
@@ -26,7 +27,7 @@ class BadConsequence
    end
 
    def self.newDeath(aText)
-      new(aText, Player.MAXLEVEL, MAXTREASURES, MAXTREASURES, [], [])
+      new(aText, Player::MAXLEVEL, MAXTREASURES, MAXTREASURES, [], [])
    end
 
    #Metodos publicos

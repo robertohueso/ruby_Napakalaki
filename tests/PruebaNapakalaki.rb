@@ -11,6 +11,33 @@ require './TreasureKind'
 
 module NapakalakiGame
    napakalaki = Napakalaki.getInstance
+   dice = Dice.getInstance
+   puts dice.nextNumber
+   dealer = CardDealer.getInstance
+   result = CombatResult::WIN
+   puts Player::MAXLEVEL
+   puts BadConsequence::MAXTREASURES
+
+   #Monstruos
+   bc = BadConsequence.newLevelSpecificTreasures("Prueba1",
+         0, [TreasureKind::ARMOR], [TreasureKind::ARMOR])
+   prize = Prize.new(2, 1)
+   monster1 = Monster.new("Byakhees de bonanza", 8, bc, prize)
+
+   bc = BadConsequence.newLevelNumberOfTreasures("Prueba2", 0, BadConsequence::MAXTREASURES, 0)
+   prize = Prize.new(3, 1)
+   monster2 = Monster.new("El gorron en el umbral", 10, bc, prize)
+
+   bc = BadConsequence.newDeath("Muerto 1")
+
+   #Jugador
+   player = Player.new("UGR")
+   puts player.getName
+   puts player.getLevels
+
+   #Otros
+   treasure = Treasure.new("Cool treasure", 2, TreasureKind::HELMET)
+   puts bc.isEmpty
 end
 
 =begin PRUEBA VERSION PRACTICA 1
