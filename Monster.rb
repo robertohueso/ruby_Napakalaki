@@ -13,10 +13,26 @@ class Monster
       @combatLevel = level
       @badConsequence = badConsequence
       @prize = prize
+      #EXAMEN
+      if defined? @@contador
+         @@contador += 1
+      else
+         @@contador = 0
+      end
+      #FIN EXAMEN
    end
 
    #Metodos publicos
    public
+   #EXAMEN
+   def Monster.getNumberOfMonsters()
+      if defined? @@contador
+         return @@contador
+      else
+         return 0
+      end
+   end
+   #FIN EXAMEN
    def getName
       return @name
    end

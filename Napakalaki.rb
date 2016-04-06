@@ -18,6 +18,9 @@ class Napakalaki
       @dealer = nil
       @currentPlayer = nil
       @players = []
+      #EXAMEN
+      @referee = Referee.getInstance
+      #FIN EXAMEN
    end
 
    #Metodos privados
