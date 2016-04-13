@@ -56,6 +56,23 @@ class Player
    end
 
    def canMakeTreasureVisible(t)
+     #Crea una lista de kinds
+     t_kinds = []
+     @visibleTreasures.each{ |treasure|
+       t_kinds << treasure.getType
+     }
+     kind = t.getType
+
+     #Comprueba si se puede hacer visible
+     if(kind == TreasureKind::ARMOR || kind == TreasureKind::HELMET ||
+       kind == TreasureKind::SHOES)
+       return !(t_kinds.include?(kind))
+     else
+       if(kind == TreasureKind::BOTHHANDS)
+         return !(t_kinds.include?(TreasureKind::ONEHAND)) &&
+                !(t_kinds.include?(TreasureKind::BOTHHANDS))
+       else
+         return t_kinds.count(kind) <= 1
    end
 
    def howManyVisibleTreasures(tKind)
