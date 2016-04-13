@@ -33,11 +33,7 @@ class Napakalaki
       if @currentPlayerIndex == nil
          @currentPlayerIndex = Random.rand(@players.length)
       else
-         new_index = @currentPlayerIndex + 1
-         if new_index == @players.length
-            new_index = 0
-         end
-         @currentPlayerIndex = new_index
+         @currentPlayerIndex = (@currentPlayerIndex + 1) % @players.length
       end
 
       #Actualiza el jugador
@@ -45,11 +41,7 @@ class Napakalaki
    end
 
    def nextTurnAllowed()
-      if @currentPlayer == nil
-         return false
-      else
-         @currentPlayer.validState
-      end
+     @currentPlayer.validState
    end
 
    #Metodos publicos
