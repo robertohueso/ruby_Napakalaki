@@ -63,6 +63,9 @@ class Napakalaki
    end
 
    def initGame(players)
+     self.initPlayers(players)
+     @dealer.initCards
+     self.nextTurn
    end
 
    def getCurrentPlayer()
@@ -74,6 +77,24 @@ class Napakalaki
    end
 
    def nextTurn()
+     #FIXME Debo inicializar stateOK a false?
+     stateOK = false
+
+     if @currentPlayer != nil
+       stateOK = self.nextTurnAllowed
+     end
+
+     if stateOK
+        @currentMonster = @dealer.nextMonster
+        @currentPlayer = self.nextPlayer
+        dead = @currentPlayer.isDead
+
+        if dead
+          @currentPlayer.initTreasures
+        end
+     end
+
+     return stateOK
    end
 
    def endOfGame(result)

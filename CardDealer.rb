@@ -194,7 +194,7 @@ class CardDealer
        self.shuffleMonsters
      end
 
-     @unusedMonsters.pop 
+     @unusedMonsters.pop
    end
 
    def giveTreasureBack(t)
@@ -206,6 +206,8 @@ class CardDealer
    end
 
    def initCards()
+     self.initTreasureCardDeck
+     self.initMonsterCardDeck
    end
 end
 
