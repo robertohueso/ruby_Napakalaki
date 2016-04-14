@@ -73,6 +73,8 @@ class Player
                 !(t_kinds.include?(TreasureKind::BOTHHANDS))
        else
          return t_kinds.count(kind) <= 1
+       end
+     end
    end
 
    def howManyVisibleTreasures(tKind)
