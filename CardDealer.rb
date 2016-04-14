@@ -178,9 +178,23 @@ class CardDealer
    end
 
    def nextTreasure()
+     if(@unusedTreasures.empty?)
+       @unusedTreasures = @usedTreasures
+       @usedTreasures.clear
+       self.shuffleTreasures
+     end
+
+     @unusedTreasures.pop
    end
 
    def nextMonster()
+     if(@unusedMonsters.empty?)
+       @unusedMonsters = @usedMonsters
+       @usedMonsters.clear
+       self.shuffleMonsters
+     end
+
+     @unusedMonsters.pop 
    end
 
    def giveTreasureBack(t)
