@@ -69,6 +69,9 @@ class Napakalaki
    end
 
    def makeTreasuresVisible(treasures)
+     treasures.each{ |treasure|
+       @currentPlayer.makeTreasureVisible(treasure)
+     }
    end
 
    def initGame(players)
