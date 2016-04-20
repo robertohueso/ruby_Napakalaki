@@ -15,7 +15,7 @@ class Napakalaki
    def initialize()
       @currentPlayerIndex = nil
       @currentMonster = nil
-      @dealer = nil
+      @dealer = CardDealer.instance
       @currentPlayer = nil
       @players = []
    end
@@ -54,9 +54,15 @@ class Napakalaki
    end
 
    def discardVisibleTreasures(treasures)
+     treasures.each{ |treasure|
+       @currentPlayer.discardVisibleTreasure(treasure)
+     }
    end
 
    def discardHiddenTreasures(treasures)
+     treasures.each{ |treasure|
+       @currentPlayer.discardHiddenTreasure(treasure)
+     }
    end
 
    def makeTreasuresVisible(treasures)
@@ -77,8 +83,7 @@ class Napakalaki
    end
 
    def nextTurn()
-     #FIXME Debo inicializar stateOK a false?
-     stateOK = false
+     stateOK = true
 
      if @currentPlayer != nil
        stateOK = self.nextTurnAllowed

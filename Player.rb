@@ -116,9 +116,25 @@ class Player
    end
 
    def discardVisibleTreasure(t)
+     dealer = CardDealer.instance
+
+     @visibleTreasures.delete(t)
+     dealer.giveTreasureBack(t)
+     if @pendingBadConsequence != nil && !(@pendingBadConsequence.isEmpty)
+       pendingBadConsequence.substractVisibleTreasure(t)
+     end
+     self.dieIfNoTreasures
    end
 
    def discardHiddenTreasure(t)
+     dealer = CardDealer.instance
+
+     @hiddenTreasures.delete(t)
+     dealer.giveTreasureBack(t)
+     if @pendingBadConsequence != nil && !(@pendingBadConsequence.isEmpty)
+       pendingBadConsequence.substractHiddenTreasure(t)
+     end
+     self.dieIfNoTreasures
    end
 
    def validState()
