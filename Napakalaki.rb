@@ -51,6 +51,9 @@ class Napakalaki
    end
 
    def developCombat()
+     combatResult = @currentPlayer.combat(@currentMonster)
+     dealer.giveMonsterBack(@currentMonster)
+     return combatResult
    end
 
    def discardVisibleTreasures(treasures)
