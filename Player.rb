@@ -160,7 +160,7 @@ class Player
      @visibleTreasures.delete(t)
      dealer.giveTreasureBack(t)
      if @pendingBadConsequence != nil && !(@pendingBadConsequence.isEmpty)
-       pendingBadConsequence.substractVisibleTreasure(t)
+       @pendingBadConsequence.substractVisibleTreasure(t)
      end
      dieIfNoTreasures
    end
@@ -171,7 +171,7 @@ class Player
      @hiddenTreasures.delete(t)
      dealer.giveTreasureBack(t)
      if @pendingBadConsequence != nil && !(@pendingBadConsequence.isEmpty)
-       pendingBadConsequence.substractHiddenTreasure(t)
+       @pendingBadConsequence.substractHiddenTreasure(t)
      end
      dieIfNoTreasures
    end
