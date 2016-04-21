@@ -25,6 +25,10 @@ class Treasure
    def getType()
       return @type
    end
+
+   def to_s()
+     return @name
+   end
 end
 
 end

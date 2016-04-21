@@ -34,7 +34,7 @@ class BadConsequence
    public
    def isEmpty
       return @nVisibleTreasures == 0 && @nHiddenTreasures == 0 &&
-             @specificHiddenTreasures.empty? && @someSpecificVisibleTreasures.empty?
+             @specificHiddenTreasures.empty? && @specificVisibleTreasures.empty?
    end
 
    def getLevels

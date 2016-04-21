@@ -38,7 +38,7 @@ class Monster
    end
 
    def to_s
-      return "Nombre: #{@name} \n\t Nivel: #{@level.to_s} \n\t Buen Rollo: #{@prize.to_s} \n\t Mal rollo: #{@badConsequence.to_s}\n"
+      return "Nombre: #{@name} \n\t Nivel: #{@combatLevel.to_s} \n\t Buen Rollo: #{@prize.to_s} \n\t Mal rollo: #{@badConsequence.to_s}\n"
    end
 
 end
