@@ -50,6 +50,17 @@ class Player
    end
 
    def applyPrize(m)
+     nLevels = m.getLevelsGained
+     self.incrementLevels(nLevels)
+     nTreasures = m.getTreasuresGained
+
+     if nTreasures > 0
+       dealer = CardDealer.instance
+       (1..nTreasures).each{
+         treasure = dealer.nextTreasure
+         @hiddenTreasures << treasure
+       }
+     end
    end
 
    def applyBadConsequence(m)
