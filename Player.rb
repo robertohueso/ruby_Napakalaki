@@ -121,9 +121,11 @@ class Player
    end
 
    def getHiddenTreasures()
+     return @hiddenTreasures
    end
 
    def getVisibleTreasures()
+     return @visibleTreasures
    end
 
    def combat(m)
