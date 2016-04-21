@@ -51,7 +51,7 @@ class Player
 
    def applyPrize(m)
      nLevels = m.getLevelsGained
-     self.incrementLevels(nLevels)
+     incrementLevels(nLevels)
      nTreasures = m.getTreasuresGained
 
      if nTreasures > 0
@@ -66,10 +66,10 @@ class Player
    def applyBadConsequence(m)
      badConsequence = m.getBadConsequence
      nLevels = badConsequence.getLevels
-     self.decrementLevels(nLevels);
+     decrementLevels(nLevels);
      pendingBad = badConsequence.adjustToFitTreasureList(@visibleTreasures,
                   @hiddenTreasures)
-     self.setPendingBadConsequence(pendingBad)
+     setPendingBadConsequence(pendingBad)
    end
 
    def canMakeTreasureVisible(t)
@@ -129,25 +129,25 @@ class Player
    end
 
    def combat(m)
-     myLevel = self.getCombatLevel
+     myLevel = getCombatLevel
      monsterLevel = m.getCombatLevel
 
      if myLevel > monsterLevel
-       self.applyPrize(m)
+       applyPrize(m)
        if @level >= Player::MAXLEVEL
          combatResult = CombatResult::WINGAME
        else
          combatResult = CombatResult::WINGAME
        end
      else
-       self.applyBadConsequence(m)
+       applyBadConsequence(m)
        combatResult = CombatResult::LOSE
      end
      return combatResult
    end
 
    def makeTreasureVisible(t)
-     canI = self.canMakeTreasureVisible(t)
+     canI = canMakeTreasureVisible(t)
      if canI
        @visibleTreasures << t
        @hiddenTreasures.delete(t)
@@ -162,7 +162,7 @@ class Player
      if @pendingBadConsequence != nil && !(@pendingBadConsequence.isEmpty)
        pendingBadConsequence.substractVisibleTreasure(t)
      end
-     self.dieIfNoTreasures
+     dieIfNoTreasures
    end
 
    def discardHiddenTreasure(t)
@@ -173,7 +173,7 @@ class Player
      if @pendingBadConsequence != nil && !(@pendingBadConsequence.isEmpty)
        pendingBadConsequence.substractHiddenTreasure(t)
      end
-     self.dieIfNoTreasures
+     dieIfNoTreasures
    end
 
    def validState()
@@ -183,7 +183,7 @@ class Player
    def initTreasures()
      dealer = CardDealer.instance
      dice = Dice.instance
-     self.bringToLife
+     bringToLife
      treasure = dealer.nextTreasure
      @hiddenTreasures << treasure
      number = dice.nextNumber
@@ -206,11 +206,15 @@ class Player
      visible = Array.new(@visibleTreasures)
      hidden = Array.new(@hiddenTreasures)
      for treasure in visible
-       self.discardVisibleTreasure(treasure)
+       discardVisibleTreasure(treasure)
      end
      for treasure in hidden
-       self.discardHiddenTreasure(treasure)
+       discardHiddenTreasure(treasure)
      end
+   end
+
+   def to_s
+     getName
    end
 end
 

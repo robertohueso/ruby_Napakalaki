@@ -174,14 +174,14 @@ class CardDealer
    #Metodos publicos
    public
    def CardDealer.getInstance()
-      self.instance
+      instance
    end
 
    def nextTreasure()
      if(@unusedTreasures.empty?)
        @unusedTreasures = @usedTreasures
        @usedTreasures.clear
-       self.shuffleTreasures
+       shuffleTreasures
      end
 
      @unusedTreasures.pop
@@ -191,7 +191,7 @@ class CardDealer
      if(@unusedMonsters.empty?)
        @unusedMonsters = @usedMonsters
        @usedMonsters.clear
-       self.shuffleMonsters
+       shuffleMonsters
      end
 
      @unusedMonsters.pop
@@ -206,8 +206,8 @@ class CardDealer
    end
 
    def initCards()
-     self.initTreasureCardDeck
-     self.initMonsterCardDeck
+     initTreasureCardDeck
+     initMonsterCardDeck
    end
 end
 

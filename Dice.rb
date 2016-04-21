@@ -11,7 +11,7 @@ class Dice
    #Metodos publicos
    public
    def Dice.getInstance()
-      self.instance
+      instance
    end
 
    def nextNumber()

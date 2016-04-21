@@ -37,7 +37,7 @@ class Napakalaki
       end
 
       #Actualiza el jugador
-      @currentPlayer = players[@currentPlayerIndex];
+      @currentPlayer = @players[@currentPlayerIndex];
    end
 
    def nextTurnAllowed()
@@ -47,7 +47,7 @@ class Napakalaki
    #Metodos publicos
    public
    def Napakalaki.getInstance()
-      self.instance
+      instance
    end
 
    def developCombat()
@@ -75,9 +75,9 @@ class Napakalaki
    end
 
    def initGame(players)
-     self.initPlayers(players)
+     initPlayers(players)
      @dealer.initCards
-     self.nextTurn
+     nextTurn
    end
 
    def getCurrentPlayer()
@@ -92,12 +92,12 @@ class Napakalaki
      stateOK = true
 
      if @currentPlayer != nil
-       stateOK = self.nextTurnAllowed
+       stateOK = nextTurnAllowed
      end
 
      if stateOK
         @currentMonster = @dealer.nextMonster
-        @currentPlayer = self.nextPlayer
+        @currentPlayer = nextPlayer
         dead = @currentPlayer.isDead
 
         if dead
