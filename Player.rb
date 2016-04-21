@@ -64,6 +64,12 @@ class Player
    end
 
    def applyBadConsequence(m)
+     badConsequence = m.getBadConsequence
+     nLevels = badConsequence.getLevels
+     self.decrementLevels(nLevels);
+     pendingBad = badConsequence.adjustToFitTreasureList(@visibleTreasures,
+                  @hiddenTreasures)
+     self.setPendingBadConsequence(pendingBad)
    end
 
    def canMakeTreasureVisible(t)
@@ -180,6 +186,14 @@ class Player
    end
 
    def discardAllTreasures()
+     visible = Array.new(@visibleTreasures)
+     hidden = Array.new(@hiddenTreasures)
+     for treasure in visible
+       self.discardVisibleTreasure(treasure)
+     end
+     for treasure in hidden
+       self.discardHiddenTreasure(treasure)
+     end
    end
 end
 
