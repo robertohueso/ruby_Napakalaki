@@ -42,6 +42,7 @@ class Player
          @level = new_level
       else
          @level = 1
+         @dead = true
       end
    end
 
@@ -137,7 +138,7 @@ class Player
        if @level >= Player::MAXLEVEL
          combatResult = CombatResult::WINGAME
        else
-         combatResult = CombatResult::WINGAME
+         combatResult = CombatResult::WIN
        end
      else
        applyBadConsequence(m)
@@ -215,7 +216,7 @@ class Player
    end
 
    def to_s
-     getName
+     getName + " Nivel: #{@level}"
    end
 end
 

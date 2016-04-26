@@ -27,7 +27,7 @@ class Treasure
    end
 
    def to_s()
-     return @name
+     return "#{@name}, #{@type}, #{@bonus}"
    end
 end
 

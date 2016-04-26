@@ -58,11 +58,16 @@ class BadConsequence
    end
 
    def substractVisibleTreasure(t)
-     @specificVisibleTreasures.delete(t.getType)
+     if @specificVisibleTreasures.delete_at(@specificVisibleTreasures.index(t.getType) ||
+                                        @specificVisibleTreasures.length) == nil
+       @nVisibleTreasures -= 1
+     end
    end
 
    def substractHiddenTreasure(t)
-     @specificHiddenTreasures.delete(t.getType)
+     if @specificHiddenTreasures.delete(t.getType) == nil
+       @nHiddenTreasures -= 1
+     end
    end
 
    def adjustToFitTreasureList(v, h)
