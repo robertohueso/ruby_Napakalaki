@@ -178,7 +178,7 @@ class Player
    end
 
    def validState()
-      return (@pendingBadConsequence.isEmpty || @pendingBadConsequence == nil) &&
+      return (@pendingBadConsequence == nil || @pendingBadConsequence.isEmpty) &&
               @hiddenTreasures.size <= 4
    end
 
@@ -216,7 +216,8 @@ class Player
    end
 
    def to_s
-     getName + " Nivel: #{@level}"
+     "#{@name} \n\t Nivel: #{@level} \n\t CombatNivel: #{getCombatLevel} \n\t
+     Muerto: #{@dead}"
    end
 end
 
