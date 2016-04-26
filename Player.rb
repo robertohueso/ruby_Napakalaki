@@ -158,7 +158,7 @@ class Player
    def discardVisibleTreasure(t)
      dealer = CardDealer.instance
 
-     @visibleTreasures.delete(t)
+     @visibleTreasures.delete_at(@visibleTreasures.index(t))
      dealer.giveTreasureBack(t)
      if @pendingBadConsequence != nil && !(@pendingBadConsequence.isEmpty)
        @pendingBadConsequence.substractVisibleTreasure(t)
@@ -169,7 +169,7 @@ class Player
    def discardHiddenTreasure(t)
      dealer = CardDealer.instance
 
-     @hiddenTreasures.delete(t)
+     @hiddenTreasures.delete_at(@hiddenTreasures.index(t))
      dealer.giveTreasureBack(t)
      if @pendingBadConsequence != nil && !(@pendingBadConsequence.isEmpty)
        @pendingBadConsequence.substractHiddenTreasure(t)
@@ -216,8 +216,7 @@ class Player
    end
 
    def to_s
-     "#{@name} \n\t Nivel: #{@level} \n\t CombatNivel: #{getCombatLevel} \n\t
-     Muerto: #{@dead}"
+     "#{@name} \n\t Nivel: #{@level} \n\t CombatNivel: #{getCombatLevel}"
    end
 end
 
