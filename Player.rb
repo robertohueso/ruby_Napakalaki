@@ -177,7 +177,8 @@ class Player
    end
 
    def validState()
-      return @pendingBadConsequence.isEmpty && @hiddenTreasures.size <= 4
+      return (@pendingBadConsequence.isEmpty || @pendingBadConsequence == nil) &&
+              @hiddenTreasures.size <= 4
    end
 
    def initTreasures()
