@@ -113,6 +113,19 @@ class Player
 
    #Metodos publicos
    public
+   #EXAMEN
+   def setHiddenTreasures(tesoros)
+     @hiddenTreasures = Array.new(tesoros)
+   end
+
+   def setVisibleTreasures(tesoros)
+     @visibleTreasures = Array.new(tesoros)
+   end
+
+   def getCombatLevelExamen
+     getCombatLevel
+   end
+   #FIN EXAMEN
    def getName()
       return @name
    end
