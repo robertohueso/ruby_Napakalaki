@@ -15,6 +15,7 @@ class CardDealer
       @usedMonsters = []
       @unusedTreasures = []
       @usedTreasures = []
+      @unusedCultists = []
    end
 
    #Metodos privados
@@ -163,12 +164,25 @@ class CardDealer
       @unusedMonsters << Monster.new("Bicefalo", 20, bc, prize)
    end
 
+   def initCultistCardDeck()
+    @unusedCultists << Cultist.new("Agaricus", 1)
+    @unusedCultists << Cultist.new("Boletus", 2)
+    @unusedCultists << Cultist.new("Daldinia", 1)
+    @unusedCultists << Cultist.new("Bolbitius", 2)
+    @unusedCultists << Cultist.new("Calvatia", 1)
+    @unusedCultists << Cultist.new("Dermoloma", 1)
+   end
+
    def shuffleTreasures()
       @unusedTreasures.shuffle!
    end
 
    def shuffleMonsters()
       @unusedMonsters.shuffle!
+   end
+
+   def shuffleCultists()
+      @unusedCultists.shuffle!
    end
 
    #Metodos publicos
@@ -195,6 +209,10 @@ class CardDealer
      end
 
      @unusedMonsters.pop
+   end
+
+   def nextCultist()
+     #FIXME Implementar
    end
 
    def giveTreasureBack(t)
