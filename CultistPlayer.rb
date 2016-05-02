@@ -8,10 +8,9 @@ class CultistPlayer < Player
   @@totalCultistPlayers = 0
 
   def initialize(p, c)
-    @@totalCultistPlayers += 1
+    newCopy(p)
     @myCultistCard = c
-    #FIXME Implementar
-
+    @@totalCultistPlayers += 1
   end
 
   def CultistPlayer.getTotalCultistPlayers()

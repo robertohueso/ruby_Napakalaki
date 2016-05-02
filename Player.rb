@@ -21,6 +21,19 @@ class Player
    end
 
    #Metodos privados
+   protected
+   def newCopy(player)
+     @name = player.getName
+     @level = player.getLevels
+     @dead = player.isDead
+     @hiddenTreasures = Array.new(player.getHiddenTreasures)
+     @visibleTreasures = Array.new(player.getVisibleTreasures)
+     @pendingBadConsequence = player.getPendingBC
+   end
+
+   def getPendingBC
+     @pendingBadConsequence
+   end
    private
    def bringToLife()
       @dead = false
