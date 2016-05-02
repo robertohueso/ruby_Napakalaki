@@ -164,41 +164,40 @@ class CardDealer
       @unusedMonsters << Monster.new("Bicefalo", 20, bc, prize)
 
       #Sectarios
-      #FIXME USAR NUEVOS CONSTRUCTORES
       bc = BadConsequence.newLevelNumberOfTreasures("Pierdes 1 mano visible",
               0, 1, 0);
       prize = Prize.new(3, 1);
-      this.unusedMonsters.add(new Monster("El mal indecible impronunciable", 10, bc, prize, -2));
+      @unusedMonsters << Monster.new("El mal indecible impronunciable", 10, bc, prize, -2)
 
       bc = BadConsequence.newLevelNumberOfTreasures("Pierdes tus tesoros visibles. Jajaja.",
               0, BadConsequence.MAXTREASURES, 0);
       prize = Prize.new(2, 1);
-      this.unusedMonsters.add(new Monster("Testigos oculares", 6, bc, prize, 2));
+      @unusedMonsters << Monster.new("Testigos oculares", 6, bc, prize, 2)
 
       bc = BadConsequence.newDeath("Hoy no es tu dia de suerte. Mueres.");
       prize = Prize.new(2, 5);
-      this.unusedMonsters.add(new Monster("El gran Cthulhu", 20, bc, prize, 4));
+      @unusedMonsters << Monster.new("El gran Cthulhu", 20, bc, prize, 4)
 
       bc = BadConsequence.newLevelNumberOfTreasures("Tu gobierno te recorta 2 niveles.",
               2, 0, 0);
       prize = Prize.new(2, 1);
-      this.unusedMonsters.add(new Monster("Serpiente Politico", 8, bc, prize, -2));
+      @unusedMonsters << Monster.new("Serpiente Politico", 8, bc, prize, -2)
 
       bc = BadConsequence.newLevelSpecificTreasures("Pierdes tu casco y tu armadura visible. Pierdes tus manos ocultas.",
               0, new ArrayList(Arrays.asList(TreasureKind.HELMET, TreasureKind.ARMOR)),
                  new ArrayList(Arrays.asList(TreasureKind.BOTHHANDS, TreasureKind.ONEHAND, TreasureKind.ONEHAND)) );
       prize = Prize.new(1, 1);
-      this.unusedMonsters.add(new Monster("Felpuggoth", 2, bc, prize, 5));
+      @unusedMonsters << Monster.new("Felpuggoth", 2, bc, prize, 5)
 
       bc = BadConsequence.newLevelNumberOfTreasures("Pierdes 2 niveles",
               2, 0, 0);
       prize = Prize.new(4, 2);
-      this.unusedMonsters.add(new Monster("Shoggoth", 16, bc, prize, -4));
+      @unusedMonsters << Monster.new("Shoggoth", 16, bc, prize, -4)
 
       bc = BadConsequence.newLevelNumberOfTreasures("Pintalabios negro. Pierdes 2 niveles.",
               2, 0, 0);
       prize = Prize.new(1, 1);
-      this.unusedMonsters.add(new Monster("Lolitagooth", 2, bc, prize, 3));
+      @unusedMonsters << Monster.new("Lolitagooth", 2, bc, prize, 3)
    end
 
    def initCultistCardDeck()
