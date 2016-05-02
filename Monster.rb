@@ -8,11 +8,12 @@ module NapakalakiGame
 class Monster
 
    #Inicializador
-   def initialize(name, level, badConsequence, prize)
+   def initialize(name, level, badConsequence, prize, lc = 0)
       @name = name
       @combatLevel = level
       @badConsequence = badConsequence
       @prize = prize
+      @levelChangeAgainstCultistPlayer = lc
    end
 
    #Metodos publicos
@@ -23,6 +24,10 @@ class Monster
 
    def getCombatLevel
       return @combatLevel
+   end
+
+   def getCombatLevelAgainstCultistPlayer
+     return @levelChangeAgainstCultistPlayer
    end
 
    def getBadConsequence
