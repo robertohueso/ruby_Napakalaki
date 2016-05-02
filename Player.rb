@@ -22,6 +22,7 @@ class Player
 
    #Metodos privados
    protected
+   #FIXME Debo hacer la copia de esta forma?
    def newCopy(player)
      @name = player.getName
      @level = player.getLevels
@@ -34,15 +35,24 @@ class Player
    def getPendingBC
      @pendingBadConsequence
    end
-   private
-   def bringToLife()
-      @dead = false
-   end
 
    def getCombatLevel()
       total_level = @level
       @visibleTreasures.each{ |treasure| total_level += treasure.getBonus()}
       return total_level
+   end
+
+   def getOponentLevel(m)
+     return m.getCombatLevel
+   end
+
+   def shouldConvert()
+     return Dice.instance.nextNumber == 1
+   end
+
+   private
+   def bringToLife()
+      @dead = false
    end
 
    def incrementLevels(l)

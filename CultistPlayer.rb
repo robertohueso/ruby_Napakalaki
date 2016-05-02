@@ -19,13 +19,18 @@ class CultistPlayer < Player
 
   protected
 
-  def getCombatLevel
+  def getCombatLevel()
+    mitad_combat_level = (0.5 * super).to_i
+    levels_cultist = @myCultistCard.getGainedlevels * @@totalCultistPlayers
+    return super + mitad_combat_level + levels_cultist
   end
 
   def getOponentLevel(m)
+    return m.getCombatLevelChangeAgainstCultistPlayer
   end
 
   def shouldConvert()
+    return false
   end
 
   private
