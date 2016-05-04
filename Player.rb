@@ -20,9 +20,14 @@ class Player
       @pendingBadConsequence = nil
    end
 
-   #Metodos privados
+   def Player.copy(player)
+     new_player = Player.new(player.getName)
+     new_player.newCopy(player)
+     return new_player
+   end
+   
    protected
-   #FIXME Debo hacer la copia de esta forma?
+   #FIXME Debe ser protected?
    def newCopy(player)
      @name = player.getName
      @level = player.getLevels
