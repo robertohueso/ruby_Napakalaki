@@ -32,13 +32,4 @@ class CultistPlayer < Player
   def shouldConvert()
     return false
   end
-
-  private
-
-  def giveMeATreasure()
-  end
-
-  def canYouGiveMeATreasure()
-  end
-
 end

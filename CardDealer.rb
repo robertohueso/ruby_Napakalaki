@@ -248,7 +248,7 @@ class CardDealer
    end
 
    def nextCultist()
-     #FIXME Implementar
+     @unusedCultists.pop
    end
 
    def giveTreasureBack(t)
