@@ -37,22 +37,6 @@ class BadConsequence
       return @levels
    end
 
-   def getNVisibleTreasures
-      return @nVisibleTreasures
-   end
-
-   def getNHiddenTreasures
-      return @nHiddenTreasures
-   end
-
-   def getSpecificHiddenTreasures
-      return @specificHiddenTreasures
-   end
-
-   def getSpecificVisibleTreasures
-      return @specificVisibleTreasures
-   end
-
    def substractVisibleTreasure(t)
      if @specificVisibleTreasures.delete_at(@specificVisibleTreasures.index(t.getType) ||
                                         @specificVisibleTreasures.length) == nil

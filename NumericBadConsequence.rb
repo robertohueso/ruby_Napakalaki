@@ -12,6 +12,14 @@ class NumericBadConsequence < BadConsequence
     @nHidden = nHidden
   end
 
+  def getNVisibleTreasures
+     return @nVisibleTreasures
+  end
+
+  def getNHiddenTreasures
+     return @nHiddenTreasures
+  end
+  
 end
 
 end

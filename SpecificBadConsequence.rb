@@ -12,6 +12,14 @@ class SpecificBadConsequence < BadConsequence
     @specificHiddenTreasures = tHidden
   end
 
+  def getSpecificHiddenTreasures
+     return @specificHiddenTreasures
+  end
+
+  def getSpecificVisibleTreasures
+     return @specificVisibleTreasures
+  end
+
 end
 
 end
