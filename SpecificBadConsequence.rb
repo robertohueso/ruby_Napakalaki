@@ -34,6 +34,10 @@ class SpecificBadConsequence < BadConsequence
     end
   end
 
+  def isEmpty
+     return @specificHiddenTreasures.isEmpty? && @specificVisibleTreasures.isEmpty?
+  end
+
 end
 
 end

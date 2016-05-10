@@ -8,8 +8,8 @@ class NumericBadConsequence < BadConsequence
 
   def initialize(text, levels, nVisible, nHidden)
     super(text, levels)
-    @nVisible = nVisible
-    @nHidden = nHidden
+    @nVisibleTreasures = nVisible
+    @nHiddenTreasures = nHidden
   end
 
   def getNVisibleTreasures
@@ -21,11 +21,15 @@ class NumericBadConsequence < BadConsequence
   end
 
   def substractVisibleTreasure(t)
-    @nVisible -= 1
+    @nVisibleTreasures -= 1
   end
 
   def substractHiddenTreasure(t)
-    @nHidden -= 1
+    @nHiddenTreasures -= 1
+  end
+
+  def isEmpty
+     return @nVisibleTreasures == 0 && @nHiddenTreasures == 0
   end
 
 end
