@@ -35,7 +35,7 @@ class SpecificBadConsequence < BadConsequence
   end
 
   def isEmpty
-     return @specificHiddenTreasures.isEmpty? && @specificVisibleTreasures.isEmpty?
+     return @specificHiddenTreasures.empty? && @specificVisibleTreasures.empty?
   end
 
   def adjustToFitTreasureList(v, h)
@@ -62,7 +62,7 @@ class SpecificBadConsequence < BadConsequence
         hiddenToLose << kind
       end
     }
-    return new(@text, @levels, visibleToLose, hiddenToLose)
+    return SpecificBadConsequence.new(@text, @levels, visibleToLose, hiddenToLose)
   end
 
 end

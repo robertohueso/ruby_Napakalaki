@@ -117,7 +117,7 @@ class Player
          return !(t_kinds.include?(TreasureKind::ONEHAND)) &&
                 !(t_kinds.include?(TreasureKind::BOTHHANDS))
        else
-         return t_kinds.count(kind) <= 1
+         return t_kinds.count(kind) <= 1 && !t_kinds.include?(TreasureKind::BOTHHANDS)
        end
      end
    end

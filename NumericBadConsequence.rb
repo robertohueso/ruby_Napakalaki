@@ -54,7 +54,7 @@ class NumericBadConsequence < BadConsequence
       nHidden = hiddenKind.size
     end
 
-    return new(@text, @levels, nVisible, nHidden)
+    return NumericBadConsequence.new(@text, @levels, nVisible, nHidden)
   end
 
 end
