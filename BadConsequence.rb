@@ -1,8 +1,5 @@
 #encoding: utf-8
 
-require_relative "TreasureKind"
-require_relative "Player"
-
 module NapakalakiGame
 
 class BadConsequence
@@ -25,8 +22,6 @@ class BadConsequence
    def to_s
       return @text
    end
-
-   private_class_method :new
 end
 
 end

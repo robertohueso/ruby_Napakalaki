@@ -1,10 +1,13 @@
 #encoding: utf-8
 
 require_relative "Treasure"
+require_relative "BadConsequence"
 require_relative "NumericBadConsequence"
 require_relative "SpecificBadConsequence"
 require_relative "DeathBadConsequence"
 require_relative "Monster"
+require_relative "Prize"
+require_relative "Cultist"
 require "singleton"
 
 module NapakalakiGame
@@ -173,7 +176,7 @@ class CardDealer
       @unusedMonsters << Monster.new("El mal indecible impronunciable", 10, bc, prize, -2)
 
       bc = NumericBadConsequence.new("Pierdes tus tesoros visibles. Jajaja.",
-              0, BadConsequence.MAXTREASURES, 0)
+              0, BadConsequence::MAXTREASURES, 0)
       prize = Prize.new(2, 1)
       @unusedMonsters << Monster.new("Testigos oculares", 6, bc, prize, 2)
 

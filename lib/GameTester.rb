@@ -7,32 +7,32 @@
 #última
 
 require 'singleton'
-require_relative 'Napakalaki'
-require_relative 'Command'
+require "./Napakalaki.rb"
+require './lib/Command.rb'
 
 module Test
 
 class GameTester
 
   include Singleton
- 
+
   public
   def play(aGame, numberOfPlayers)
-    
+
     @game = aGame
     names = getPlayerNames(numberOfPlayers)
-    @game.initGame(names) 
-    
+    @game.initGame(names)
+
     begin #Mientras dure la partida
       currentPlayer=@game.getCurrentPlayer()
       begin #Mientras el jugador se decide a conocer al monstruo
         puts "******* ******* ******* ******* ******* ******* *******"
-        puts "\n\n Turno de: " + currentPlayer.to_s() 
+        puts "\n\n Turno de: " + currentPlayer.to_s()
         command = getCommandBeforeKnowingMonster()
-        command = processCommand(command, currentPlayer)        
+        command = processCommand(command, currentPlayer)
       end while (command != Command::Exit && command != Command::ShowMonster)
       if (command == Command::ShowMonster) then
-        begin #Mientras el jugador se decida a combatir 
+        begin #Mientras el jugador se decida a combatir
           puts "******* ******* ******* ******* ******* ******* *******"
           puts "\n\n Turno de: " + currentPlayer.to_s()
           command = getCommandBeforeFighting()
@@ -41,10 +41,10 @@ class GameTester
         if (command == Command::Combat) then
           combatResult = @game.developCombat()
           case combatResult
-            when NapakalakiGame::CombatResult::WINGAME then 
+            when NapakalakiGame::CombatResult::WINGAME then
               puts "\n\n       " + currentPlayer.getName()
               puts "\n\n HAS GANADO LA PARTIDA"
-              #break está implícito            
+              #break está implícito
             when NapakalakiGame::CombatResult::WIN then
               puts "\n\n Ganaste el combate"
             when NapakalakiGame::CombatResult::LOSE then
@@ -55,7 +55,7 @@ class GameTester
               currentPlayer=@game.getCurrentPlayer()
            end #case
            if (combatResult != NapakalakiGame::CombatResult::WINGAME) then
-            begin #Hasta que se avance de turno 
+            begin #Hasta que se avance de turno
               puts "******* ******* ******* ******* ******* ******* *******"
               puts "\n\n Turno de: " + currentPlayer.to_s()
               if currentPlayer.validState() then
@@ -65,44 +65,44 @@ class GameTester
               end
               command = processCommand(command, currentPlayer)
             end while (command != Command::Exit && command != Command::NextTurnAllowed)
-          else 
+          else
             command = Command::Exit;
-          end #if WINGAME  
+          end #if WINGAME
         end #if COMBAT
       end #if SHOWMOnSTER
     end while (command != Command::Exit) #mientras dure la partida
 
   end
-  
+
   private
-  
+
   def getCommandAfterFighting()
-      commands = [Command::ShowMonster, Command::ShowVisibleTreasure, Command::ShowHiddenTreasure, 
+      commands = [Command::ShowMonster, Command::ShowVisibleTreasure, Command::ShowHiddenTreasure,
       Command::DiscardVisibleTreasure, Command::DiscardHiddenTreasure, Command::DiscardAll,
       Command::MakeTreasureVisible, Command::NextTurn, Command::Exit]
       manageMenu("Opciones antes de pasar turno", commands)
   end
-  
+
   def getCommandAfterFightingPendingBC()
-      commands = [Command::ShowMonster, Command::ShowVisibleTreasure, Command::ShowHiddenTreasure, 
+      commands = [Command::ShowMonster, Command::ShowVisibleTreasure, Command::ShowHiddenTreasure,
       Command::DiscardVisibleTreasure, Command::DiscardHiddenTreasure, Command::DiscardAll,
       Command::NextTurn, Command::Exit]
       manageMenu("Opciones antes de pasar turno", commands)
   end
-  
+
   def getCommandBeforeFighting ()
-      commands = [Command::ShowMonster, Command::ShowVisibleTreasure, Command::ShowHiddenTreasure, 
+      commands = [Command::ShowMonster, Command::ShowVisibleTreasure, Command::ShowHiddenTreasure,
       Command::Combat, Command::Exit]
       manageMenu("Opciones antes de combatir", commands)
   end
-  
-  def getCommandBeforeKnowingMonster () 
-      commands = [Command::ShowMonster,Command::ShowVisibleTreasure, Command::ShowHiddenTreasure, 
-      Command::MakeTreasureVisible,  Command::Exit]      
+
+  def getCommandBeforeKnowingMonster ()
+      commands = [Command::ShowMonster,Command::ShowVisibleTreasure, Command::ShowHiddenTreasure,
+      Command::MakeTreasureVisible,  Command::Exit]
       manageMenu("Opciones antes de conocer al monstruo", commands)
   end
-  
-  def getPlayerNames (numberOfPlayers) 
+
+  def getPlayerNames (numberOfPlayers)
     names = Array.new
     for i in 1..numberOfPlayers
       puts "Escribe el nombre del jugador #{i}: "
@@ -111,54 +111,54 @@ class GameTester
     names
   end
 
-  def getTreasure (howMany) 
-    
+  def getTreasure (howMany)
+
     validInput = true
     option = Command::GoBack.menu
     puts "\n Elige un tesoro: "
     capture = gets.chomp
-    
+
     begin #tratar la excepcion
       option = Integer(capture)
       if (option < Command::GoBack.menu || option > howMany) then #no se ha escrito un entero en el rango permitido
         validInput = false
       end
-    rescue Exception => e  
+    rescue Exception => e
       validInput = false
     end
-    
+
     if (! validInput) then
-      inputErrorMessage() 
+      inputErrorMessage()
       return -2  # Muestra de nuevo el menu y pide otra entrada
     end
     option
   end
-  
-  def inputErrorMessage () 
+
+  def inputErrorMessage ()
     puts "\n\n ERROR !!! \n\n Selección errónea. Inténtalo de nuevo.\n\n"
   end
-    
+
   def manageDiscardTreasures (visible, aPlayer)
-     
+
     begin #Se descartan tesoros hasta que se vuelve al menÃº anterior
       if visible then
         howMany = showTreasures("Elige tesoros visibles para descartar", aPlayer.getVisibleTreasures(), true)
-      else 
+      else
         howMany = showTreasures("Elige tesoros ocultos para descartar", aPlayer.getHiddenTreasures(), true)
       end
       option = getTreasure (howMany)
-      if (option > -1) then 
+      if (option > -1) then
         if visible then
           @game.discardVisibleTreasures ([aPlayer.getVisibleTreasures().at(option)])
         else
-          @game.discardHiddenTreasures ([aPlayer.getHiddenTreasures().at(option)])          
+          @game.discardHiddenTreasures ([aPlayer.getHiddenTreasures().at(option)])
         end
       end
-    end while (option != -1)  
+    end while (option != -1)
   end
-  
+
   def manageMakeTreasureVisible (aPlayer)
-       
+
     begin #Se hacen tesoros visibles hasta que se vuelve al menÃº anterior
       howMany = showTreasures("Elige tesoros para intentar hacerlos visibles", aPlayer.getHiddenTreasures(), true)
       option = getTreasure (howMany);
@@ -167,12 +167,12 @@ class GameTester
       end
     end while (option != -1)
   end
-  
-  def manageMenu (message, menu) 
+
+  def manageMenu (message, menu)
     menuCheck = Hash.new #Para comprobar que se hace una selecciÃ³n vÃ¡lida
     menu.each do |c|
       menuCheck [c.menu] = c
-    end    
+    end
     begin #Hasta que se hace una selecciÃ³n vÃ¡lida
       validInput = true
       option = Command::GoBack.menu
@@ -190,24 +190,24 @@ class GameTester
         end
       rescue Exception => e  #No se ha introducido un entero
         validInput = false
-      end  
-      
+      end
+
       if (! validInput) then
         inputErrorMessage()
       end
     end while (! validInput)
-    menuCheck[option]    
+    menuCheck[option]
   end
-    
-  def processCommand (command, aPlayer) 
-    case command 
-      when Command::Exit then 
+
+  def processCommand (command, aPlayer)
+    case command
+      when Command::Exit then
         puts "exit"
       when Command::Combat then
         puts "combat"
 #        puts "pulsa enter para seguir"
 #        gets
-      when  Command::ShowMonster then 
+      when  Command::ShowMonster then
         puts "\n------- ------- ------- ------- ------- ------- ------- "
         puts "El monstruo actual es:\n\n" + @game.getCurrentMonster().to_s()
 #        puts "pulsa enter para seguir"
@@ -240,7 +240,7 @@ class GameTester
           puts "No cumples las condiciones para pasar de turno."
           puts "O bien tienes más de 4 tesoros ocultos"
           puts "O bien te queda mal rollo por cumplir"
-        else 
+        else
           command = Command::NextTurnAllowed
         end
 #        puts "pulsa enter para seguir"
@@ -248,12 +248,12 @@ class GameTester
     end
     command
   end
-  
+
   def showTreasures (message, treasures, menu)
     optionMenu = Command::GoBack.menu
 
     puts "\n------- ------- ------- ------- ------- ------- -------"
-    puts message 
+    puts message
     if menu then
       puts "\n #{Command::GoBack.menu} : " + Command::GoBack.text
     end
@@ -261,13 +261,13 @@ class GameTester
       optionMenu = optionMenu + 1
       if (menu)
          puts "\n" + optionMenu.to_s() + ":" + t.to_s()
-      else 
+      else
          puts "\n" + t.to_s()
       end
-     
+
     end
     optionMenu
   end
- 
+
  end #clase
 end #modulo

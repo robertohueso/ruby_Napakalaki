@@ -2,7 +2,6 @@
 
 require_relative "Treasure"
 require_relative "Dice"
-require_relative "BadConsequence"
 require_relative "CardDealer"
 require_relative "CombatResult"
 
@@ -25,7 +24,7 @@ class Player
      new_player.newCopy(player)
      return new_player
    end
-   
+
    protected
    #FIXME Debe ser protected?
    def newCopy(player)

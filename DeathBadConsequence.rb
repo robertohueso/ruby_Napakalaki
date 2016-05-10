@@ -1,6 +1,6 @@
 #encoding: utf-8
 
-require_relative "BadConsequence"
+require_relative "NumericBadConsequence"
 
 module NapakalakiGame
 
