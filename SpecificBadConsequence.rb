@@ -37,6 +37,34 @@ class SpecificBadConsequence < BadConsequence
   def isEmpty
      return @specificHiddenTreasures.isEmpty? && @specificVisibleTreasures.isEmpty?
   end
+
+  def adjustToFitTreasureList(v, h)
+    visibleKind = []
+    hiddenKind = []
+    visibleToLose = []
+    hiddenToLose = []
+
+    v.each{ |treasure|
+      visibleKind << treasure.getType
+    }
+    h.each{ |treasure|
+      hiddenKind << treasure.getType
+    }
+
+    #Ajusta los tesoros especificos.
+    @specificVisibleTreasures.each{ |kind|
+      if visibleToLose.count(kind) < visibleKind.count(kind)
+        visibleToLose << kind
+      end
+    }
+    @specificHiddenTreasures.each{ |kind|
+      if hiddenToLose.count(kind) < hiddenKind.count(kind)
+        hiddenToLose << kind
+      end
+    }
+    return new(@text, @levels, visibleToLose, hiddenToLose)
+  end
+
 end
 
 end

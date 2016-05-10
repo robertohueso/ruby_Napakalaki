@@ -45,6 +45,7 @@ class NumericBadConsequence < BadConsequence
       hiddenKind << treasure.getType
     }
 
+    #Ajusta la cantidad de tesoros perdidos.
     if nVisible > visibleKind.size
       nVisible = visibleKind.size
     end
