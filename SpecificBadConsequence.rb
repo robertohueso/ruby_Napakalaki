@@ -5,7 +5,13 @@ require_relative "BadConsequence"
 module NapakalakiGame
 
 class SpecificBadConsequence < BadConsequence
-  
+
+  def initialize(text, levels, tVisible, tHidden)
+    super(text, levels)
+    @specificVisibleTreasures = tVisible
+    @specificHiddenTreasures = tHidden
+  end
+
 end
 
 end

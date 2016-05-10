@@ -9,13 +9,9 @@ class BadConsequence
    MAXTREASURES = 10
 
    #Inicializadores
-   def initialize(aText, someLevels, someVisibleTreasures, someHiddenTreasures, someSpecificVisibleTreasures, someSpecificHiddenTreasures)
+   def initialize(aText, someLevels)
       @text = aText
       @levels = someLevels
-      @nVisibleTreasures = someVisibleTreasures
-      @nHiddenTreasures = someHiddenTreasures
-      @specificVisibleTreasures = someSpecificVisibleTreasures
-      @specificHiddenTreasures = someSpecificHiddenTreasures
    end
 
    def self.newLevelNumberOfTreasures(aText, someLevels, someVisibleTreasures, someHiddenTreasures)
