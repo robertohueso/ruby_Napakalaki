@@ -32,6 +32,30 @@ class NumericBadConsequence < BadConsequence
      return @nVisibleTreasures == 0 && @nHiddenTreasures == 0
   end
 
+  def adjustToFitTreasureList(v, h)
+    visibleKind = []
+    hiddenKind = []
+    nVisible = @nVisibleTreasures
+    nHidden = @nHiddenTreasures
+
+    v.each{ |treasure|
+      visibleKind << treasure.getType
+    }
+    h.each{ |treasure|
+      hiddenKind << treasure.getType
+    }
+
+    if nVisible > visibleKind.size
+      nVisible = visibleKind.size
+    end
+
+    if nHidden > hiddenKind.size
+      nHidden = hiddenKind.size
+    end
+
+    return new(@text, @levels, nVisible, nHidden)
+  end
+
 end
 
 end
