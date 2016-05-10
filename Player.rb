@@ -169,7 +169,11 @@ class Player
        end
      else
        applyBadConsequence(m)
-       combatResult = CombatResult::LOSE
+       if shouldConvert
+         combatResult = CombatResult::LOSEANDCONVERT
+       else
+         combatResult = CombatResult::LOSE
+       end
      end
      return combatResult
    end

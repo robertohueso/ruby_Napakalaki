@@ -3,6 +3,7 @@
 require "singleton"
 require_relative "Monster"
 require_relative "Player"
+require_relative "CultistPlayer"
 require_relative "CombatResult"
 require_relative "CardDealer"
 
@@ -53,6 +54,11 @@ class Napakalaki
    def developCombat()
      combatResult = @currentPlayer.combat(@currentMonster)
      @dealer.giveMonsterBack(@currentMonster)
+     if combatResult == CombatResult::LOSEANDCONVERT
+       new_player = CultistPlayer.new(@currentPlayer, @dealer.nextCultist)
+       @currentPlayer = new_player
+       @players[@currentPlayerIndex] = new_player
+     end
      return combatResult
    end
 

@@ -1,5 +1,7 @@
 #encoding: utf-8
 
+module NapakalakiGame
+
 class Cultist
   def initialize(name, gainedLevels)
     @name = name
@@ -9,4 +11,10 @@ class Cultist
   def getGainedlevels()
     @gainedLevels
   end
+
+  def to_s
+    return "#{@name} ---- Gana: #{@gainedLevels} niveles."
+  end
+end
+
 end
