@@ -20,6 +20,20 @@ class SpecificBadConsequence < BadConsequence
      return @specificVisibleTreasures
   end
 
+  def substractVisibleTreasure(t)
+    index = @specificVisibleTreasures.index(t.getType)
+    if index
+      @specificVisibleTreasures.delete_at(index)
+    end
+  end
+
+  def substractHiddenTreasure(t)
+    index = @specificHiddenTreasures.index(t.getType)
+    if index
+      @specificHiddenTreasures.delete_at(index)
+    end
+  end
+
 end
 
 end

@@ -19,7 +19,15 @@ class NumericBadConsequence < BadConsequence
   def getNHiddenTreasures
      return @nHiddenTreasures
   end
-  
+
+  def substractVisibleTreasure(t)
+    @nVisible -= 1
+  end
+
+  def substractHiddenTreasure(t)
+    @nHidden -= 1
+  end
+
 end
 
 end
