@@ -26,7 +26,6 @@ class Player
    end
 
    protected
-   #FIXME Debe ser protected?
    def newCopy(player)
      @name = player.getName
      @level = player.getLevels
