@@ -51,7 +51,7 @@ class Player
    end
 
    def shouldConvert()
-     return Dice.instance.nextNumber == 1
+     return Dice.instance.nextNumber == 6
    end
 
    private
