@@ -32,7 +32,9 @@ class CultistPlayer < Player
   end
 
   def getOponentLevel(m)
-    return m.getCombatLevelChangeAgainstCultistPlayer
+    #EXAMEN
+    return m.getCombatLevelChangeAgainstCultistPlayer(self)
+    #FIN EXAMEN
   end
 
   def shouldConvert()

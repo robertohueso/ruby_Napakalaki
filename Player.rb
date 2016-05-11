@@ -45,10 +45,6 @@ class Player
       return total_level
    end
 
-   def getOponentLevel(m)
-     return m.getCombatLevel
-   end
-
    def shouldConvert()
      return Dice.instance.nextNumber == 6
    end
@@ -143,6 +139,12 @@ class Player
       return @name
    end
 
+   def getOponentLevel(m)
+     #EXAMEN
+     return m.getCombatLevel(self)
+     #FIN EXAMEN
+   end
+
    def isDead()
       return @dead
    end
@@ -157,7 +159,7 @@ class Player
 
    def combat(m)
      myLevel = getCombatLevel
-     monsterLevel = m.getCombatLevel
+     monsterLevel = getOponentLevel(m)
 
      if myLevel > monsterLevel
        applyPrize(m)
