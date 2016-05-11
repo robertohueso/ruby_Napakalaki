@@ -24,7 +24,7 @@ class Monster
    end
 
    def getCombatLevelAgainstCultistPlayer
-     return @levelChangeAgainstCultistPlayer
+     return @levelChangeAgainstCultistPlayer + getCombatLevel
    end
 
    def getBadConsequence

@@ -22,14 +22,14 @@ class SpecificBadConsequence < BadConsequence
 
   def substractVisibleTreasure(t)
     index = @specificVisibleTreasures.index(t.getType)
-    if index
+    if index != nil
       @specificVisibleTreasures.delete_at(index)
     end
   end
 
   def substractHiddenTreasure(t)
     index = @specificHiddenTreasures.index(t.getType)
-    if index
+    if index != nil
       @specificHiddenTreasures.delete_at(index)
     end
   end
